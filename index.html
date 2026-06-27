@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안영현 ♡ 손바다 — 상견례</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pk1: #FFB6C8;
+  --pk2: #FF85A8;
+  --pk3: #E8547A;
+  --pk4: #C93A63;
+  --pk5: #8C1A40;
+  --pk-bg: #FFF0F5;
+  --pk-light: #FFD6E7;
+  --pk-soft: #FFEAF2;
+  --gold: #C9A96E;
+  --gold-lt: #EAD9B8;
+  --cream: #FDF8F5;
+  --white: #FFFFFF;
+  --dark: #2A1018;
+  --mid: #6B3348;
+  --soft: #9B6070;
+  --trans: 0.5s cubic-bezier(0.77,0,0.18,1);
+  /* 밝은 핑크 (히어로/클로징용) */
+  --bp1: #FFF0F6;
+  --bp2: #FFD9E8;
+  --bp3: #FFBFD9;
+  --bp-text: #C2406A;
+}
+
+html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR',sans-serif; background:#fff0f5; touch-action:pan-y; }
+
+/* ── Slides ── */
+.sw { display:flex; width:100%; height:100vh; transition:transform var(--trans); }
+.slide { min-width:100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+
+/* ── Dots ── */
+.dots { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:100; }
+.dot { width:6px; height:6px; border-radius:50%; background:rgba(180,60,100,0.25); transition:all .3s; cursor:pointer; }
+.dot.on { background:var(--pk3); width:20px; border-radius:3px; }
+
+/* ── Hamburger ── */
+.ham { position:fixed; top:18px; left:18px; z-index:200; width:40px; height:40px; border:none; background:rgba(232,84,122,0.12); backdrop-filter:blur(8px); border-radius:50%; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; }
+.ham span { display:block; width:16px; height:1.5px; background:var(--pk4); border-radius:2px; transition:all .3s; }
+.ham.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity:0; }
+.ham.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+/* ── Drawer ── */
+.drawer { position:fixed; top:0; left:0; width:270px; height:100vh; background:#fff; box-shadow:2px 0 24px rgba(201,58,99,.15); z-index:190; transform:translateX(-100%); transition:transform .35s cubic-bezier(0.77,0,0.18,1); display:flex; flex-direction:column; padding:76px 28px 40px; overflow-y:auto; }
+.drawer.open { transform:translateX(0); }
+.draw-title { font-size:11px; letter-spacing:.18em; color:var(--pk3); margin-bottom:20px; }
+.ni { display:flex; align-items:center; gap:12px; padding:12px 0; cursor:pointer; border-bottom:1px solid var(--pk-light); }
+.ni:last-child { border-bottom:none; }
+.ni-num { font-size:11px; color:var(--pk2); min-width:22px; }
+.ni-lbl { font-size:15px; color:var(--mid); transition:color .2s; }
+.ni:hover .ni-lbl, .ni.on .ni-lbl { color:var(--pk4); font-weight:500; }
+.ni.on .ni-num { color:var(--pk4); }
+.overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:180; display:none; cursor:pointer; }
+.overlay.open { display:block; }
+
+/* ── Page num ── */
+.pgnum { position:fixed; bottom:24px; right:24px; font-size:11px; color:var(--soft); z-index:100; letter-spacing:.1em; }
+
+/* ════════ SLIDE 1: HERO (밝은 핑크) ════════ */
+.s1 { background:linear-gradient(160deg,var(--bp1) 0%,var(--bp2) 55%,var(--bp3) 100%); }
+.s1-deco { position:absolute; inset:0; pointer-events:none; }
+.s1-deco::before { content:''; position:absolute; top:-15%; right:-10%; width:55vmin; height:55vmin; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.5) 0%,transparent 70%); }
+.s1-deco::after { content:''; position:absolute; bottom:-10%; left:-10%; width:45vmin; height:45vmin; border-radius:50%; background:radial-gradient(circle,rgba(255,160,192,.35) 0%,transparent 70%); }
+.s1-inner { position:relative; z-index:2; text-align:center; padding:2rem; }
+.s1-eye { font-size:13px; letter-spacing:.2em; color:var(--pk4); margin-bottom:2rem; font-weight:500; }
+.s1-ring { width:110px; height:110px; border-radius:50%; border:1.5px solid rgba(232,84,122,.4); display:flex; align-items:center; justify-content:center; margin:0 auto 2rem; position:relative; background:rgba(255,255,255,.4); }
+.s1-ring::before { content:''; position:absolute; inset:8px; border-radius:50%; border:1px solid rgba(232,84,122,.25); }
+.s1-ring svg { width:44px; height:44px; }
+.s1-names { font-family:'Noto Serif KR',serif; font-size:clamp(32px,6vw,54px); font-weight:700; color:var(--bp-text); line-height:1.3; margin-bottom:.75rem; }
+.s1-heart { color:var(--pk2); display:inline-block; animation:hb 2s ease-in-out infinite; }
+@keyframes hb { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+.s1-sub { font-size:16px; color:var(--mid); letter-spacing:.06em; margin-bottom:2rem; }
+.s1-badge { display:inline-block; border:1.5px solid var(--pk3); border-radius:40px; padding:9px 26px; font-size:14px; color:var(--pk4); letter-spacing:.08em; background:rgba(255,255,255,.5); font-weight:500; }
+
+/* ════════ SLIDE 2: 소개 ════════ */
+.s2 { background:var(--cream); }
+.s2-bg { position:absolute; top:0; right:0; width:42%; height:58%; background:var(--pk-bg); border-radius:0 0 0 60%; pointer-events:none; }
+
+.s3 { background:linear-gradient(145deg,var(--pk4) 0%,var(--pk5) 100%); }
+.s3-deco { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.s3-deco .line { position:absolute; width:1px; height:100%; top:0; background:rgba(255,255,255,.06); }
+.s3-inner { position:relative; z-index:2; max-width:680px; padding:2rem; text-align:center; }
+.story-place { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:30px; padding:7px 20px; font-size:13px; color:rgba(255,255,255,.85); margin-bottom:1.75rem; }
+.story-place svg { width:14px; height:14px; }
+.story-quote { font-family:'Noto Serif KR',serif; font-size:clamp(19px,3.2vw,27px); font-weight:600; color:#fff; line-height:1.7; margin-bottom:1.25rem; }
+.story-quote .em { color:var(--gold-lt); }
+.story-body { font-size:14.5px; color:rgba(255,255,255,.7); line-height:1.9; margin-bottom:1.75rem; }
+.dday-row { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+.dday-pill { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:30px; padding:8px 18px; font-size:12.5px; color:#fff; }
+.dday-pill .num { font-family:'Noto Serif KR',serif; font-size:15px; font-weight:600; color:var(--gold-lt); display:block; }
+.s2-inner { position:relative; z-index:2; width:100%; max-width:880px; padding:1.5rem 2rem; }
+.sec-label { font-size:11px; letter-spacing:.2em; color:var(--pk3); text-align:center; margin-bottom:.75rem; font-weight:500; }
+.sec-title { font-family:'Noto Serif KR',serif; font-size:clamp(24px,3.5vw,34px); font-weight:600; color:var(--dark); text-align:center; margin-bottom:1.5rem; }
+.pg { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.pc { background:#fff; border-radius:20px; padding:1.5rem; position:relative; overflow:hidden; box-shadow:0 4px 24px rgba(201,58,99,.07); }
+.pc::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pk2),var(--gold)); }
+.pc-role { font-size:12px; letter-spacing:.15em; color:var(--pk3); margin-bottom:.35rem; font-weight:500; }
+.pc-name { font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; color:var(--dark); margin-bottom:.3rem; }
+.pc-hanja { font-size:14px; color:var(--soft); margin-bottom:.5rem; }
+.pc-mean { font-size:13px; color:var(--pk3); background:var(--pk-bg); border-radius:8px; padding:5px 10px; display:inline-block; margin-bottom:.9rem; }
+.pc-div { height:1px; background:var(--pk-light); margin-bottom:.9rem; }
+.pr { display:flex; align-items:flex-start; gap:9px; margin-bottom:.65rem; }
+.pr-ic { width:30px; height:30px; border-radius:50%; background:var(--pk-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.pr-ic svg { width:15px; height:15px; }
+.pr-info { font-size:14px; color:var(--mid); line-height:1.55; padding-top:3px; }
+.pr-info b { display:block; font-size:11px; color:var(--soft); font-weight:400; margin-bottom:1px; }
+.fam-row { display:flex; gap:6px; margin-top:3px; align-items:center; flex-wrap:wrap; }
+.fam-row svg { width:18px; height:24px; }
+
+/* ════════ SLIDE 3: 결혼식 타임라인 ════════ */
+.s4 { background:var(--cream); align-items:stretch !important; overflow-y:auto !important; }
+.s4-bg { position:absolute; bottom:0; left:0; width:100%; height:35%; background:var(--pk-soft); pointer-events:none; }
+.s4-inner { position:relative; z-index:2; width:100%; max-width:920px; padding:1.25rem 2rem; margin:auto; }
+.wb { background:linear-gradient(135deg,var(--pk3) 0%,var(--pk5) 100%); border-radius:16px; padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+.wb-left .wb-date { font-family:'Noto Serif KR',serif; font-size:clamp(20px,3.5vw,30px); font-weight:700; color:#fff; }
+.wb-left .wb-venue { font-size:14px; color:rgba(255,255,255,.85); margin-top:3px; }
+.wb-right { text-align:right; }
+.wb-dday { font-size:22px; font-weight:500; color:#fff; font-family:'Noto Serif KR',serif; }
+.wb-dlbl { font-size:11px; color:rgba(255,255,255,.65); margin-top:2px; }
+.tl-outer { width:100%; overflow:visible; padding:6px 0; }
+#tlContainer { width:100%; overflow:visible; }
+#tlContainer svg { overflow:visible; }
+
+/* ════════ SLIDE 4: 신혼집 & 계획 ════════ */
+.s5 { background:linear-gradient(160deg,#ffe9f2 0%,#ffd9e9 100%); }
+.s5-inner { position:relative; z-index:2; width:100%; max-width:920px; padding:1.5rem 2rem; }
+.grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.hcard { background:#fff; border-radius:18px; padding:1.25rem; box-shadow:0 3px 20px rgba(201,58,99,.07); }
+.hcard-ic { width:40px; height:40px; border-radius:12px; background:var(--pk-bg); display:flex; align-items:center; justify-content:center; margin-bottom:.85rem; }
+.hcard-ic svg { width:20px; height:20px; }
+.hcard-title { font-family:'Noto Serif KR',serif; font-size:16px; font-weight:600; color:var(--dark); margin-bottom:.5rem; padding-bottom:.5rem; border-bottom:1px solid var(--pk-light); }
+.hcard-body { font-size:13px; color:var(--mid); line-height:1.75; }
+.hcard-body .tag { display:inline-block; background:var(--pk-soft); border:1px solid var(--pk-light); border-radius:20px; padding:2px 10px; font-size:11.5px; color:var(--pk4); margin-top:.4rem; margin-right:3px; }
+.hcard-helper { font-size:11.5px; color:var(--soft); margin-top:.5rem; padding-top:.4rem; border-top:1px solid var(--pk-light); display:flex; align-items:center; gap:5px; }
+.hcard-helper svg { width:12px; height:12px; flex-shrink:0; }
+
+/* ════════ SLIDE 5: 닮은 점 & 케미 ════════ */
+.s7 { background:var(--cream); }
+.s7-inner { position:relative; z-index:2; width:100%; max-width:880px; padding:1.5rem 2rem; }
+.chemi-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px; }
+.chemi-card { background:#fff; border-radius:18px; padding:1.4rem; box-shadow:0 3px 20px rgba(201,58,99,.06); }
+.chemi-card-h { display:flex; align-items:center; gap:10px; margin-bottom:.9rem; }
+.chemi-ic { width:34px; height:34px; border-radius:50%; background:var(--pk-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.chemi-ic svg { width:17px; height:17px; }
+.chemi-card-h span { font-family:'Noto Serif KR',serif; font-size:16px; font-weight:600; color:var(--dark); }
+.chemi-li { display:flex; gap:8px; font-size:13.5px; color:var(--mid); line-height:1.65; margin-bottom:.55rem; }
+.chemi-li .dot2 { width:5px; height:5px; border-radius:50%; background:var(--pk3); margin-top:7px; flex-shrink:0; }
+.chemi-wide { background:#fff; border-radius:18px; padding:1.4rem; box-shadow:0 3px 20px rgba(201,58,99,.06); }
+
+/* ════════ SLIDE 6: 한마디 ════════ */
+.s8 { background:linear-gradient(160deg,#ffeaf1 0%,#ffd4e4 100%); }
+.s8-inner { position:relative; z-index:2; width:100%; max-width:760px; padding:1.5rem 2rem; }
+.letter-card { background:#fff; border-radius:20px; padding:1.6rem 1.8rem; margin-bottom:16px; position:relative; box-shadow:0 4px 24px rgba(201,58,99,.08); }
+.letter-tag { display:inline-block; background:var(--pk3); color:#fff; font-size:12px; padding:4px 14px; border-radius:20px; margin-bottom:.9rem; font-weight:500; }
+.letter-text { font-size:14.5px; color:var(--mid); line-height:1.95; font-family:'Noto Serif KR',serif; }
+.letter-sign { text-align:right; font-size:13px; color:var(--pk4); margin-top:.9rem; font-weight:500; }
+
+/* ════════ SLIDE 7: 다짐 ════════ */
+.s9 { background:var(--cream); }
+.s9-inner { position:relative; z-index:2; width:100%; max-width:880px; padding:1.5rem 2rem; }
+.vow-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.vow-card { background:#fff; border-radius:20px; padding:1.6rem; box-shadow:0 4px 24px rgba(201,58,99,.07); position:relative; overflow:hidden; }
+.vow-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pk2),var(--gold)); }
+.vow-role { font-size:12px; color:var(--pk3); letter-spacing:.1em; margin-bottom:.4rem; font-weight:500; }
+.vow-title { font-family:'Noto Serif KR',serif; font-size:18px; font-weight:600; color:var(--dark); margin-bottom:1rem; padding-bottom:.8rem; border-bottom:1px solid var(--pk-light); }
+.vow-li { display:flex; gap:9px; font-size:13.5px; color:var(--mid); line-height:1.7; margin-bottom:.7rem; }
+.vow-num { width:20px; height:20px; border-radius:50%; background:var(--pk-soft); color:var(--pk4); font-size:11px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:600; }
+
+/* ════════ SLIDE 8: OX 퀴즈 ════════ */
+.s10 { background:linear-gradient(160deg,#ffe3ed 0%,#ffc2d8 100%); }
+.s10-inner { position:relative; z-index:2; width:100%; max-width:680px; padding:1.5rem 2rem; text-align:center; }
+.quiz-counter { font-size:12px; color:var(--pk4); letter-spacing:.1em; margin-bottom:.6rem; font-weight:500; }
+.quiz-box { background:#fff; border-radius:24px; padding:2.2rem 1.8rem; box-shadow:0 8px 32px rgba(201,58,99,.12); min-height:280px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.quiz-q { font-family:'Noto Serif KR',serif; font-size:clamp(17px,2.6vw,21px); color:var(--dark); line-height:1.7; margin-bottom:1.8rem; font-weight:600; }
+.quiz-btns { display:flex; gap:20px; }
+.quiz-btn { width:80px; height:80px; border-radius:50%; border:3px solid var(--pk3); background:#fff; font-family:'Noto Serif KR',serif; font-size:28px; font-weight:700; color:var(--pk4); cursor:pointer; transition:all .2s; }
+.quiz-btn:hover { background:var(--pk-soft); transform:scale(1.06); }
+.quiz-btn.correct { background:#FFB6C8; border-color:var(--pk4); color:#fff; }
+.quiz-btn.wrong { opacity:.35; }
+.quiz-result { font-size:14px; color:var(--pk4); margin-top:1.3rem; min-height:20px; font-weight:500; }
+.quiz-next { margin-top:1rem; background:var(--pk3); color:#fff; border:none; border-radius:30px; padding:9px 24px; font-size:13px; cursor:pointer; display:none; font-weight:500; }
+.quiz-progress { display:flex; gap:6px; justify-content:center; margin-top:1.4rem; }
+
+.s11 { background:linear-gradient(160deg,#fff0f6 0%,#ffd9e8 100%); }
+.s11-inner { position:relative; z-index:2; width:100%; max-width:680px; padding:1.5rem 2rem; text-align:center; }
+.topic-card { background:#fff; border-radius:24px; padding:2.4rem 1.8rem; box-shadow:0 8px 32px rgba(201,58,99,.12); min-height:200px; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; }
+.topic-text { font-family:'Noto Serif KR',serif; font-size:clamp(17px,2.6vw,21px); color:var(--dark); line-height:1.7; font-weight:600; }
+.topic-btn { background:var(--pk3); color:#fff; border:none; border-radius:30px; padding:13px 32px; font-size:15px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
+.topic-btn:hover { background:var(--pk4); }
+.topic-btn svg { width:16px; height:16px; }
+.topic-counter { font-size:12px; color:var(--pk4); letter-spacing:.08em; margin-top:1rem; font-weight:500; }
+.topic-reset { margin-top:.5rem; background:none; border:none; font-size:12px; color:var(--soft); cursor:pointer; text-decoration:underline; }
+.qp-dot { width:8px; height:8px; border-radius:50%; background:var(--pk-light); }
+.qp-dot.done { background:var(--pk3); }
+
+/* ════════ SLIDE LAST: 클로징 (밝은 핑크) ════════ */
+.s6 { background:linear-gradient(160deg,var(--bp1) 0%,var(--bp2) 55%,var(--bp3) 100%); }
+.s6-deco { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.s6-c { position:absolute; border-radius:50%; border:1.5px solid rgba(232,84,122,.12); top:50%; left:50%; }
+.s6-inner { position:relative; z-index:2; text-align:center; padding:2rem; }
+.s6-heart { display:block; margin:0 auto 1.5rem; animation:hb 2s ease-in-out infinite; }
+.s6-heart svg { width:52px; height:52px; }
+.s6-names { font-family:'Noto Serif KR',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:var(--bp-text); margin-bottom:1rem; }
+.s6-text { font-family:'Noto Serif KR',serif; font-size:clamp(15px,2.3vw,20px); color:var(--mid); line-height:2.1; margin-bottom:2rem; }
+.s6-date { font-size:13px; color:var(--pk4); letter-spacing:.1em; font-weight:500; }
+
+@media(max-width:640px){
+  .pg,.grid3,.chemi-grid,.vow-grid { grid-template-columns:1fr; }
+  .grid2 { grid-template-columns:1fr; }
+  .quiz-btns { gap:14px; }
+  .quiz-btn { width:68px; height:68px; font-size:24px; }
+}
+</style>
+</head>
+<body>
+
+<button class="ham" id="ham"><span></span><span></span><span></span></button>
+<div class="overlay" id="ov"></div>
+<nav class="drawer" id="dr">
+  <p class="draw-title">목 차</p>
+  <div class="ni on" data-p="0"><span class="ni-num">01</span><span class="ni-lbl">인사말</span></div>
+  <div class="ni" data-p="1"><span class="ni-num">02</span><span class="ni-lbl">두 사람 소개</span></div>
+  <div class="ni" data-p="2"><span class="ni-num">03</span><span class="ni-lbl">만남 이야기</span></div>
+  <div class="ni" data-p="3"><span class="ni-num">04</span><span class="ni-lbl">결혼식 일정</span></div>
+  <div class="ni" data-p="4"><span class="ni-num">05</span><span class="ni-lbl">신혼집 &amp; 계획</span></div>
+  <div class="ni" data-p="5"><span class="ni-num">06</span><span class="ni-lbl">닮은 점 &amp; 케미</span></div>
+  <div class="ni" data-p="6"><span class="ni-num">07</span><span class="ni-lbl">서로에게 한마디</span></div>
+  <div class="ni" data-p="7"><span class="ni-num">08</span><span class="ni-lbl">다짐</span></div>
+  <div class="ni" data-p="8"><span class="ni-num">09</span><span class="ni-lbl">랜덤 대화 주제</span></div>
+  <div class="ni" data-p="9"><span class="ni-num">10</span><span class="ni-lbl">OX 퀴즈</span></div>
+  <div class="ni" data-p="10"><span class="ni-num">11</span><span class="ni-lbl">마치며</span></div>
+</nav>
+<div class="dots" id="dots"></div>
+<div class="pgnum" id="pgnum">1 / 9</div>
+
+<div class="sw" id="sw">
+
+<!-- ═══ 1. HERO ═══ -->
+<div class="slide s1">
+  <div class="s1-deco"></div>
+  <div class="s1-inner">
+    <p class="s1-eye">2026. 06. 28 &nbsp;·&nbsp; 상견례</p>
+    <div class="s1-ring">
+      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="22" r="14" stroke="#E8547A" stroke-width="2.5"/>
+        <circle cx="22" cy="22" r="8" stroke="#E8547A" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <circle cx="22" cy="10" r="3.5" fill="#E8547A"/>
+        <circle cx="22" cy="10" r="2" fill="#FFD6E7"/>
+      </svg>
+    </div>
+    <h1 class="s1-names">
+      안영현 <span class="s1-heart">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 30C18 30 4 21.5 4 12.5C4 8.36 7.36 5 11.5 5C14.24 5 16.63 6.45 18 8.6C19.37 6.45 21.76 5 24.5 5C28.64 5 32 8.36 32 12.5C32 21.5 18 30 18 30Z" fill="#FF85A8"/>
+        </svg>
+      </span> 손바다
+    </h1>
+    <p class="s1-sub">저희 두 사람을 소개합니다</p>
+    <div class="s1-badge">2026. 06. 28 &nbsp;상견례</div>
+  </div>
+</div>
+
+<!-- ═══ 2. 소개 ═══ -->
+<div class="slide s2">
+  <div class="s2-bg"></div>
+  <div class="s2-inner">
+    <p class="sec-label">ABOUT US</p>
+    <h2 class="sec-title">두 사람 소개</h2>
+    <div class="pg">
+      <div class="pc">
+        <p class="pc-role">신 랑</p>
+        <p class="pc-name">안영현</p>
+        <p class="pc-hanja">安永玹</p>
+        <p class="pc-mean">편안할 安 · 영원할 永 · 아름다운 옥 玹</p>
+        <div class="pc-div"></div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="4" r="2.5" stroke="#E8547A" stroke-width="1.2"/><path d="M2 12c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#E8547A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <div class="pr-info"><b>생년월일</b>1997년 05월 13일 (만 29세)</div>
+        </div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><rect x="2" y="4" width="10" height="7" rx="1" stroke="#E8547A" stroke-width="1.2"/><path d="M5 4V3a2 2 0 0 1 4 0v1" stroke="#E8547A" stroke-width="1.2"/></svg></div>
+          <div class="pr-info"><b>직장</b>㈜코드리치 · 매니저 · 2022년 7월 입사</div>
+        </div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2L8.5 5.5H12L9.5 7.5L10.5 11L7 9L3.5 11L4.5 7.5L2 5.5H5.5L7 2Z" stroke="#E8547A" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
+          <div class="pr-info"><b>학력</b>평택고등학교 졸업<br>상명대학교 디지털콘텐츠학과 (4년제)</div>
+        </div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><circle cx="5" cy="3.5" r="1.5" stroke="#E8547A" stroke-width="1.1"/><path d="M2 10c0-1.66 1.34-3 3-3" stroke="#E8547A" stroke-width="1.1" stroke-linecap="round"/><circle cx="9.5" cy="3.5" r="1.5" stroke="#E8547A" stroke-width="1.1"/><path d="M7 10c0-1.66 1.34-3 3-3" stroke="#E8547A" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <div class="pr-info"><b>가족</b>
+            <div class="fam-row">
+              <svg viewBox="0 0 16 22" fill="none"><circle cx="8" cy="5" r="3.5" fill="#E8547A"/><rect x="4" y="10" width="8" height="9" rx="2" fill="#E8547A"/><rect x="2" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="11" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/><rect x="8.5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/></svg>
+              <svg viewBox="0 0 16 22" fill="none"><circle cx="8" cy="5" r="3.5" fill="#FF85A8"/><path d="M4 10 Q4 19 6 19 L10 19 Q12 19 12 10 Z" fill="#FF85A8"/><rect x="5" y="18" width="2.5" height="4" rx="1.2" fill="#FF85A8" opacity=".7"/><rect x="8.5" y="18" width="2.5" height="4" rx="1.2" fill="#FF85A8" opacity=".7"/></svg>
+              <svg viewBox="0 0 14 20" fill="none"><circle cx="7" cy="4.5" r="3" fill="#FFB6C8"/><path d="M3.5 9.5 Q3.5 17 5.5 17 L8.5 17 Q10.5 17 10.5 9.5 Z" fill="#FFB6C8"/><rect x="4.5" y="16" width="2" height="3.5" rx="1" fill="#FFB6C8" opacity=".7"/><rect x="7.5" y="16" width="2" height="3.5" rx="1" fill="#FFB6C8" opacity=".7"/></svg>
+              <span style="font-size:12.5px;color:var(--soft)">부모님, 여동생</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pc">
+        <p class="pc-role">신 부</p>
+        <p class="pc-name">손바다</p>
+        <p class="pc-hanja">孫바다</p>
+        <p class="pc-mean">자손 孫 · 바다처럼 넓고 깊은 마음</p>
+        <div class="pc-div"></div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="4" r="2.5" stroke="#E8547A" stroke-width="1.2"/><path d="M2 12c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#E8547A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <div class="pr-info"><b>생년월일</b>1999년 03월 20일 (만 27세)</div>
+        </div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><rect x="2" y="4" width="10" height="7" rx="1" stroke="#E8547A" stroke-width="1.2"/><path d="M5 4V3a2 2 0 0 1 4 0v1" stroke="#E8547A" stroke-width="1.2"/></svg></div>
+          <div class="pr-info"><b>직장</b>㈜그룹환경종합건축사사무소<br>대리 · 2021년 12월 입사</div>
+        </div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2L8.5 5.5H12L9.5 7.5L10.5 11L7 9L3.5 11L4.5 7.5L2 5.5H5.5L7 2Z" stroke="#E8547A" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
+          <div class="pr-info"><b>학력</b>봉일천고등학교 졸업<br>중부대학교 건축학과 (4년제)</div>
+        </div>
+        <div class="pr">
+          <div class="pr-ic"><svg viewBox="0 0 14 14" fill="none"><circle cx="5" cy="3.5" r="1.5" stroke="#E8547A" stroke-width="1.1"/><path d="M2 10c0-1.66 1.34-3 3-3" stroke="#E8547A" stroke-width="1.1" stroke-linecap="round"/><circle cx="9.5" cy="3.5" r="1.5" stroke="#E8547A" stroke-width="1.1"/><path d="M7 10c0-1.66 1.34-3 3-3" stroke="#E8547A" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <div class="pr-info"><b>가족</b>
+            <div class="fam-row">
+              <svg viewBox="0 0 16 22" fill="none"><circle cx="8" cy="5" r="3.5" fill="#E8547A"/><rect x="4" y="10" width="8" height="9" rx="2" fill="#E8547A"/><rect x="2" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="11" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/><rect x="8.5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/></svg>
+              <span style="font-size:12.5px;color:var(--soft)">아버지</span>
+              <svg viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="11" rx="6" ry="5" fill="#FFB6C8"/><ellipse cx="9" cy="7.5" rx="4.5" ry="4" fill="#FFB6C8"/><polygon points="5,5 4,1 7,4" fill="#FF85A8"/><polygon points="13,5 14,1 11,4" fill="#FF85A8"/><circle cx="7.2" cy="7.5" r=".9" fill="#C93A63"/><circle cx="10.8" cy="7.5" r=".9" fill="#C93A63"/><path d="M7.5 9.5 Q9 10.5 10.5 9.5" stroke="#C93A63" stroke-width=".9" stroke-linecap="round"/></svg>
+              <span style="font-size:12.5px;color:var(--soft)">고양이(아들) · 코카</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 3. 만남 이야기 ═══ -->
+<div class="slide s3">
+  <div class="s3-deco"><div class="line" style="left:25%"></div><div class="line" style="left:50%"></div><div class="line" style="left:75%"></div></div>
+  <div class="s3-inner">
+    <p class="sec-label" style="color:rgba(255,255,255,.5);">OUR STORY</p>
+    <div class="story-place">
+      <svg viewBox="0 0 14 14" fill="none"><path d="M7 1C4.5 1 2.5 3 2.5 5.5C2.5 9 7 13 7 13C7 13 11.5 9 11.5 5.5C11.5 3 9.5 1 7 1Z" stroke="#fff" stroke-width="1.2"/><circle cx="7" cy="5.5" r="1.8" stroke="#fff" stroke-width="1.1"/></svg>
+      종로3가 6번 출구
+    </div>
+    <p class="story-quote">
+      <span class="em">"한눈에 반해"</span><br>
+      신랑이 용기를 내어<br>번호를 물었습니다
+    </p>
+    <p class="story-body">
+      우연 같지 않은 그날의 인연이<br>
+      사랑이 되고, 가정이 되었습니다.
+    </p>
+    <div class="dday-row">
+      <div class="dday-pill"><span class="num">2023. 07. 01</span>첫 만남</div>
+      <div class="dday-pill"><span class="num">약 3년</span>함께한 시간</div>
+      <div class="dday-pill"><span class="num" id="ddayNum">D+0</span>D+일</div>
+    </div>
+  </div>
+</div>
+<div class="slide s4">
+  <div class="s4-bg"></div>
+  <div class="s4-inner">
+    <p class="sec-label">WEDDING PLAN</p>
+    <h2 class="sec-title" style="margin-bottom:1rem;">결혼식 일정</h2>
+    <div class="wb">
+      <div class="wb-left">
+        <p class="wb-date">2027. 10. 02 (토)</p>
+        <p class="wb-venue">수원 더 아리엘 웨딩홀</p>
+      </div>
+      <div class="wb-right">
+        <p class="wb-dday" id="wdday">D-???</p>
+        <p class="wb-dlbl">결혼식까지</p>
+      </div>
+    </div>
+    <div class="tl-outer">
+      <div id="tlContainer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 4. 신혼집 & 계획 ═══ -->
+<div class="slide s5">
+  <div class="s5-inner">
+    <p class="sec-label" style="color:var(--pk4);">OUR HOME &amp; FUTURE</p>
+    <h2 class="sec-title" style="color:var(--dark); margin-bottom:1.25rem;">신혼집 &amp; 미래 계획</h2>
+    <div class="grid3" style="margin-bottom:12px;">
+      <div class="hcard">
+        <div class="hcard-ic"><svg viewBox="0 0 20 20" fill="none"><path d="M3 9L10 3L17 9V17H13V13H7V17H3V9Z" stroke="#E8547A" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        <p class="hcard-title">신혼집</p>
+        <p class="hcard-body">경기도 용인 상갈동<br>아파트 24평<br><br>함께 생활하며 보금자리를 가꾸고 있습니다.<span class="tag">현재 동거 중</span></p>
+        <p class="hcard-helper"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9B6070" stroke-width="1"/><path d="M6 3v3l2 1.5" stroke="#9B6070" stroke-width="1" stroke-linecap="round"/></svg>신랑 부 &amp; 모 지원</p>
+      </div>
+      <div class="hcard">
+        <div class="hcard-ic"><svg viewBox="0 0 20 20" fill="none"><path d="M3 13H17V11L14 6H6L3 11V13Z" stroke="#E8547A" stroke-width="1.4" stroke-linejoin="round"/><circle cx="5.5" cy="14.5" r="1.5" stroke="#E8547A" stroke-width="1.3"/><circle cx="14.5" cy="14.5" r="1.5" stroke="#E8547A" stroke-width="1.3"/><path d="M7 9h6" stroke="#E8547A" stroke-width="1" stroke-linecap="round"/></svg></div>
+        <p class="hcard-title">자동차</p>
+        <p class="hcard-body">제네시스 GV70<br>2026년식<span class="tag">애칭: 베링이</span></p>
+        <p class="hcard-helper"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9B6070" stroke-width="1"/><path d="M6 3v3l2 1.5" stroke="#9B6070" stroke-width="1" stroke-linecap="round"/></svg>신부 아버지 지원</p>
+      </div>
+      <div class="hcard">
+        <div class="hcard-ic"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3.5" stroke="#E8547A" stroke-width="1.4"/><path d="M4 18c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="#E8547A" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="7" r="1.2" fill="#E8547A"/></svg></div>
+        <p class="hcard-title">자녀 계획</p>
+        <p class="hcard-body">2028년 하반기 잉태 목표<br>두 가족의 사랑을 듬뿍 받으며 행복하게 키우겠습니다.<span class="tag">1명 계획</span></p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="hcard">
+        <div class="hcard-ic"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#E8547A" stroke-width="1.4"/><path d="M3 9h14" stroke="#E8547A" stroke-width="1" stroke-dasharray="2 1.5"/><circle cx="6.5" cy="7" r=".8" fill="#E8547A"/></svg></div>
+        <p class="hcard-title">혼수</p>
+        <p class="hcard-body"><span class="tag">침대</span><span class="tag">냉장고</span><span class="tag">세탁기</span><span class="tag">밥솥</span><span class="tag">전자레인지</span><span class="tag">청소기</span><span class="tag">소파</span><span class="tag">식탁</span><span class="tag">드레스룸</span><span class="tag">에어컨</span></p>
+        <p class="hcard-helper"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9B6070" stroke-width="1"/><path d="M6 3v3l2 1.5" stroke="#9B6070" stroke-width="1" stroke-linecap="round"/></svg>신부 아버지 지원</p>
+      </div>
+      <div class="hcard">
+        <div class="hcard-ic"><svg viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4" stroke="#E8547A" stroke-width="1.4" stroke-linecap="round"/><path d="M4 16l2-2 8-8 2-2" stroke="#E8547A" stroke-width="1" stroke-linecap="round" opacity=".4"/><circle cx="16" cy="4" r="2" fill="#E8547A"/></svg></div>
+        <p class="hcard-title">인테리어</p>
+        <p class="hcard-body"><span class="tag">도배</span><span class="tag">장판</span><span class="tag">샤시</span><span class="tag">화장실</span><span class="tag">필름</span><span class="tag">페인트</span><span class="tag">전등</span></p>
+        <p class="hcard-helper"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#9B6070" stroke-width="1"/><path d="M6 3v3l2 1.5" stroke="#9B6070" stroke-width="1" stroke-linecap="round"/></svg>신랑 부 &amp; 모 지원</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 5. 닮은 점 & 케미 ═══ -->
+<div class="slide s7">
+  <div class="s7-inner">
+    <p class="sec-label">CHEMISTRY</p>
+    <h2 class="sec-title">닮은 점 &amp; 케미</h2>
+    <div class="chemi-grid">
+      <div class="chemi-card">
+        <div class="chemi-card-h">
+          <div class="chemi-ic"><svg viewBox="0 0 17 17" fill="none"><path d="M8.5 14C8.5 14 2 9.8 2 5.6C2 3.34 3.84 1.5 6.1 1.5C7.16 1.5 8.13 1.94 8.5 2.7C8.87 1.94 9.84 1.5 10.9 1.5C13.16 1.5 15 3.34 15 5.6C15 9.8 8.5 14 8.5 14Z" fill="#E8547A"/></svg></div>
+          <span>닮은 점</span>
+        </div>
+        <div class="chemi-li"><div class="dot2"></div><span>둘 다 계획형 인간 — 여행이나 일정을 미리 꼼꼼하게 짜두는 걸 좋아해요</span></div>
+        <div class="chemi-li"><div class="dot2"></div><span>맛집 탐방을 좋아해서 주말마다 새로운 식당을 찾아다녀요</span></div>
+        <div class="chemi-li"><div class="dot2"></div><span>둘 다 정리정돈에 예민해서 집안일 합이 잘 맞아요</span></div>
+      </div>
+      <div class="chemi-card">
+        <div class="chemi-card-h">
+          <div class="chemi-ic"><svg viewBox="0 0 17 17" fill="none"><path d="M8.5 2L9.8 5.8L14 5.8L10.7 8.2L11.9 12L8.5 9.7L5.1 12L6.3 8.2L3 5.8L7.2 5.8L8.5 2Z" stroke="#E8547A" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+          <span>다르지만 잘 맞는 점</span>
+        </div>
+        <div class="chemi-li"><div class="dot2"></div><span>신랑은 즉흥적, 신부는 신중한 편 — 신부가 큰 그림을 잡으면 신랑이 추진력으로 실행해요</span></div>
+        <div class="chemi-li"><div class="dot2"></div><span>신랑은 외향적, 신부는 차분한 성격으로 서로의 빈자리를 자연스럽게 채워줘요</span></div>
+      </div>
+    </div>
+    <div class="chemi-wide">
+      <div class="chemi-card-h">
+        <div class="chemi-ic"><svg viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="6.5" stroke="#E8547A" stroke-width="1.2"/><path d="M8.5 5v3.5l2.5 1.5" stroke="#E8547A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+        <span>3년의 시간이 만든 우리</span>
+      </div>
+      <p style="font-size:13.5px; color:var(--mid); line-height:1.8;">
+        처음 만난 그날부터 지금까지, 서로의 다름을 맞춰가며 자연스럽게 한 팀이 되었습니다.
+        의견이 다를 땐 충분히 이야기를 나누고, 함께 결정하는 습관이 자리 잡았어요.
+        그 과정들이 쌓여 이제는 서로에게 가장 편안한 사람이 되었습니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 6. 서로에게 한마디 ═══ -->
+<div class="slide s8">
+  <div class="s8-inner">
+    <p class="sec-label">A MESSAGE TO YOU</p>
+    <h2 class="sec-title">서로에게 한마디</h2>
+    <div class="letter-card">
+      <span class="letter-tag">신랑이 신부에게</span>
+      <p class="letter-text">
+        바다야, 늘 묵묵히 내 옆을 지켜줘서 고마워.<br>
+        가끔 부족한 모습을 보여도 항상 믿어주고 응원해줘서 여기까지 올 수 있었어.<br>
+        앞으로도 지금처럼, 어떤 순간에도 네 편이 되어줄게.
+      </p>
+      <p class="letter-sign">— 영현</p>
+    </div>
+    <div class="letter-card" style="margin-bottom:0;">
+      <span class="letter-tag" style="background:var(--pk2);">신부가 신랑에게</span>
+      <p class="letter-text">
+        영현 오빠, 늘 밝은 에너지로 곁에 있어줘서 고마워.<br>
+        내가 신중하게 고민할 때 든든하게 추진해주는 모습에 늘 의지하게 돼.<br>
+        앞으로의 모든 순간을 함께 만들어가고 싶어.
+      </p>
+      <p class="letter-sign">— 바다</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 7. 다짐 ═══ -->
+<div class="slide s9">
+  <div class="s9-inner">
+    <p class="sec-label">OUR PROMISE</p>
+    <h2 class="sec-title">양가 부모님께 드리는 다짐</h2>
+    <div class="vow-grid">
+      <div class="vow-card">
+        <p class="vow-role">신랑이 신부 아버님께</p>
+        <p class="vow-title">든든한 사위가 되겠습니다</p>
+        <div class="vow-li"><div class="vow-num">1</div><span>바다를 평생 아끼고 존중하며 살겠습니다</span></div>
+        <div class="vow-li"><div class="vow-num">2</div><span>자주 안부 전하고, 가족처럼 가까이 지내겠습니다</span></div>
+        <div class="vow-li"><div class="vow-num">3</div><span>바다가 어떤 어려움이 있어도 가장 먼저 의지할 수 있는 사람이 되겠습니다</span></div>
+      </div>
+      <div class="vow-card">
+        <p class="vow-role">신부가 신랑 부모님께</p>
+        <p class="vow-title">사랑받는 며느리가 되겠습니다</p>
+        <div class="vow-li"><div class="vow-num">1</div><span>영현 오빠와 함께 따뜻하고 화목한 가정을 만들어가겠습니다</span></div>
+        <div class="vow-li"><div class="vow-num">2</div><span>두 분의 마음을 헤아리며 좋은 며느리가 되도록 노력하겠습니다</span></div>
+        <div class="vow-li"><div class="vow-num">3</div><span>힘든 일이 있으실 때 먼저 마음을 살피고 챙기는 며느리가 되겠습니다</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 8. 랜덤 대화 주제 ═══ -->
+<div class="slide s11">
+  <div class="s11-inner">
+    <p class="sec-label" style="color:var(--pk4);">ICE BREAKING</p>
+    <h2 class="sec-title" style="color:var(--dark); margin-bottom:1.2rem;">랜덤 대화 주제 뽑기</h2>
+    <div class="topic-card">
+      <p class="topic-text" id="topicText">버튼을 눌러 주제를 뽑아보세요</p>
+    </div>
+    <button class="topic-btn" id="topicBtn">
+      <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="9" height="11" rx="1.5" stroke="#fff" stroke-width="1.3" transform="rotate(-8 6 8)"/><rect x="5" y="2" width="9" height="11" rx="1.5" stroke="#fff" stroke-width="1.3"/></svg>
+      주제 뽑기
+    </button>
+    <p class="topic-counter" id="topicCounter">0 / 20 주제 사용</p>
+    <button class="topic-reset" id="topicReset">전체 주제 다시 섞기</button>
+  </div>
+</div>
+
+<!-- ═══ 9. OX 퀴즈 ═══ -->
+<div class="slide s10">
+  <div class="s10-inner">
+    <p class="sec-label" style="color:var(--pk4);">MINI GAME</p>
+    <h2 class="sec-title" style="color:var(--dark); margin-bottom:.5rem;">우리 둘에 대한 OX 퀴즈</h2>
+    <p class="quiz-counter" id="quizCounter">1 / 11</p>
+    <div class="quiz-box">
+      <p class="quiz-q" id="quizQ">문제를 불러오는 중...</p>
+      <div class="quiz-btns" id="quizBtns">
+        <button class="quiz-btn" data-ans="O">O</button>
+        <button class="quiz-btn" data-ans="X">X</button>
+      </div>
+      <p class="quiz-result" id="quizResult"></p>
+      <button class="quiz-next" id="quizNext">다음 문제 →</button>
+    </div>
+    <div class="quiz-progress" id="quizProgress"></div>
+  </div>
+</div>
+
+<!-- ═══ 9. 클로징 ═══ -->
+<div class="slide s6">
+  <div class="s6-deco">
+    <div class="s6-c" style="width:280px;height:280px;margin-left:-140px;margin-top:-140px;"></div>
+    <div class="s6-c" style="width:440px;height:440px;margin-left:-220px;margin-top:-220px;"></div>
+    <div class="s6-c" style="width:600px;height:600px;margin-left:-300px;margin-top:-300px;"></div>
+  </div>
+  <div class="s6-inner">
+    <span class="s6-heart">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M26 44C26 44 6 31.5 6 18.5C6 12.15 11.15 7 17.5 7C21.54 7 25.1 9.12 27 12.3C28.9 9.12 32.46 7 36.5 7C42.85 7 48 12.15 48 18.5C48 31.5 26 44 26 44Z" fill="#FF85A8"/>
+      </svg>
+    </span>
+    <p class="s6-names">안영현 &amp; 손바다</p>
+    <p class="s6-text">
+      두 분의 따뜻한 축복 속에<br>
+      서로를 아끼고 사랑하며<br>
+      행복한 가정을 이루겠습니다.<br><br>
+      잘 부탁드립니다.
+    </p>
+    <p class="s6-date">2026. 06. 28 &nbsp;·&nbsp; 상견례</p>
+  </div>
+</div>
+
+</div><!-- /sw -->
+
+<script>
+const TOTAL = 11;
+let cur = 0, anim = false;
+const sw = document.getElementById('sw');
+const dotsEl = document.getElementById('dots');
+const niEls = document.querySelectorAll('.ni');
+const pgnum = document.getElementById('pgnum');
+
+for(let i=0;i<TOTAL;i++){
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' on':'');
+  d.onclick=()=>go(i);
+  dotsEl.appendChild(d);
+}
+
+function go(n){
+  if(n===cur||anim)return;
+  anim=true;
+  cur=Math.max(0,Math.min(TOTAL-1,n));
+  sw.style.transform=`translateX(-${cur*100}vw)`;
+  dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+  niEls.forEach((el,i)=>el.classList.toggle('on',i===cur));
+  pgnum.textContent=`${cur+1} / ${TOTAL}`;
+  closeNav();
+  setTimeout(()=>anim=false,520);
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')go(cur+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);
+});
+
+let tx=0,ty=0,tStartEl=null;
+const INTERACTIVE_SEL='button,.quiz-btn,.topic-btn,.topic-reset,.ni,.ham,.dot,a,input,select,textarea';
+
+document.addEventListener('touchstart',e=>{
+  tx=e.touches[0].clientX;
+  ty=e.touches[0].clientY;
+  tStartEl=e.target;
+},{passive:true});
+
+document.addEventListener('touchend',e=>{
+  // 버튼/메뉴 등 인터랙티브 요소를 탭한 경우는 스와이프 페이지전환 무시
+  if(tStartEl && tStartEl.closest && tStartEl.closest(INTERACTIVE_SEL)) return;
+
+  const dx=e.changedTouches[0].clientX-tx;
+  const dy=e.changedTouches[0].clientY-ty;
+
+  // 좌우 스와이프만 페이지 전환에 사용 (위아래는 슬라이드 내부 스크롤에 양보 - 아이패드 대응)
+  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>50){
+    go(dx<0?cur+1:cur-1);
+  }
+},{passive:true});
+
+const ham=document.getElementById('ham');
+const dr=document.getElementById('dr');
+const ov=document.getElementById('ov');
+ham.onclick=()=>{
+  const o=dr.classList.toggle('open');
+  ham.classList.toggle('open',o);
+  ov.classList.toggle('open',o);
+};
+function closeNav(){dr.classList.remove('open');ham.classList.remove('open');ov.classList.remove('open');}
+ov.onclick=closeNav;
+niEls.forEach(el=>el.addEventListener('click',()=>go(+el.dataset.p)));
+
+// D-day
+const wd=new Date('2027-10-02');
+const now=new Date();
+const diff=Math.ceil((wd-now)/86400000);
+document.getElementById('wdday').textContent='D-'+diff.toLocaleString();
+
+// D+일 (첫 만남부터)
+const metDate=new Date('2023-07-01');
+const dplus=Math.floor((now-metDate)/86400000);
+const ddayEl=document.getElementById('ddayNum');
+if(ddayEl) ddayEl.textContent='D+'+dplus.toLocaleString();
+
+// ── 가로 타임라인 (안 잘리도록 충분한 padding 확보) ──
+const events = [
+  { date:'2026.09', label:['웨딩링','픽업'], done:true,  pct:0 },
+  { date:'2026.10', label:['드레스·예복','샵 선택'],    done:false, pct:8 },
+  { date:'2026.10', label:['신혼여행','패키지 계약'],   done:false, pct:14 },
+  { date:'2027.03', label:['웨딩촬영','의상 선택'],     done:false, pct:42 },
+  { date:'2027.04', label:['웨딩','촬영'],              done:false, pct:50 },
+  { date:'2027.08', label:['청첩장','배부'],            done:false, pct:75 },
+  { date:'2027.08', label:['어머니','한복 선택'],       done:false, pct:81 },
+  { date:'2027.09', label:['본식드레스','예복 선택'],   done:false, pct:88 },
+  { date:'2027.10', label:['결혼식','허니문'],          done:false, pct:100 },
+];
+
+const iconPaths = [
+  '<circle cx="7" cy="7" r="4.5" stroke="#E8547A" stroke-width="1.4"/><circle cx="7" cy="2.5" r="1.3" fill="#E8547A"/>',
+  '<path d="M4 2h6l2 5H2L4 2Z" stroke="#E8547A" stroke-width="1.2" stroke-linejoin="round"/><path d="M3 7v6h8V7" stroke="#E8547A" stroke-width="1.2"/>',
+  '<path d="M2 8h10l2-2-2-2H2l1 2-1 2Z" stroke="#E8547A" stroke-width="1.2" stroke-linejoin="round"/><path d="M8 8v4" stroke="#E8547A" stroke-width="1" stroke-linecap="round"/>',
+  '<path d="M4 3h6M4 3L2 6h10L8 3" stroke="#E8547A" stroke-width="1.2" stroke-linejoin="round"/><rect x="3" y="6" width="8" height="6" rx="1" stroke="#E8547A" stroke-width="1.2"/>',
+  '<rect x="2" y="4" width="10" height="8" rx="1.5" stroke="#E8547A" stroke-width="1.2"/><circle cx="7" cy="8" r="2" stroke="#E8547A" stroke-width="1.2"/><path d="M5 4L6 2h2l1 2" stroke="#E8547A" stroke-width="1" stroke-linejoin="round"/>',
+  '<rect x="2" y="4" width="10" height="8" rx="1" stroke="#E8547A" stroke-width="1.2"/><path d="M2 5l5 4 5-4" stroke="#E8547A" stroke-width="1.2" stroke-linecap="round"/>',
+  '<path d="M4 3h6c0 0 1 2 0 4H4c-1-2 0-4 0-4Z" stroke="#E8547A" stroke-width="1.2" stroke-linejoin="round"/><path d="M4 7l-1 6h8l-1-6" stroke="#E8547A" stroke-width="1.2"/>',
+  '<path d="M5 2h4l3 5H2L5 2Z" stroke="#E8547A" stroke-width="1.2" stroke-linejoin="round"/><path d="M3 7v6h8V7" stroke="#E8547A" stroke-width="1.2"/>',
+  '<path d="M7 11C7 11 2 7.5 2 4.5 2 3.12 3.12 2 4.5 2c.88 0 1.66.48 2 1.2C6.84 2.48 7.62 2 8.5 2 9.88 2 11 3.12 11 4.5 11 7.5 7 11 7 11Z" fill="#E8547A"/>',
+];
+
+function renderTimeline(){
+  const con=document.getElementById('tlContainer');
+  if(!con)return;
+  const W=Math.max(con.offsetWidth||800, 320);
+  const SIDE_PAD = 30;          // 좌우 끝 노드가 잘리지 않도록 패딩
+  const usableW = W - SIDE_PAD*2;
+  const TOP_TEXT_H = 50;        // 위쪽 텍스트 영역 높이
+  const BOT_TEXT_H = 50;        // 아래쪽 텍스트 영역 높이
+  const NODE_R = 12;
+  const V_LINE = 22;
+  const MH = TOP_TEXT_H + V_LINE + NODE_R*2 + V_LINE + BOT_TEXT_H; // 전체 svg 높이
+  const barY = TOP_TEXT_H + V_LINE + NODE_R;
+
+  let html=`<svg width="100%" height="${MH}" viewBox="0 0 ${W} ${MH}" xmlns="http://www.w3.org/2000/svg" style="display:block; overflow:visible;">`;
+  html+=`<rect x="${SIDE_PAD}" y="${barY-2.5}" width="${usableW}" height="5" rx="2.5" fill="#FFD6E7"/>`;
+  const fillPct = events[0].done ? events[1].pct : 0;
+  html+=`<rect x="${SIDE_PAD}" y="${barY-2.5}" width="${usableW*fillPct/100}" height="5" rx="2.5" fill="url(#pg)"/>`;
+  html+=`<defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF85A8"/><stop offset="100%" stop-color="#C9A96E"/></linearGradient></defs>`;
+
+  events.forEach((ev,i)=>{
+    const x = SIDE_PAD + usableW*ev.pct/100;
+    const isTop = i % 2 === 0;
+    const nodeY = barY;
+
+    const lineY1 = isTop ? nodeY - NODE_R : nodeY + NODE_R;
+    const lineY2 = isTop ? nodeY - NODE_R - V_LINE : nodeY + NODE_R + V_LINE;
+
+    html+=`<line x1="${x}" y1="${lineY1}" x2="${x}" y2="${lineY2}" stroke="#FFAAC4" stroke-width="1"/>`;
+
+    const nc = ev.done ? '#FFB6C8' : '#fff';
+    const ns = ev.done ? '#FF85A8' : '#FFB6C8';
+    html+=`<circle cx="${x}" cy="${nodeY}" r="${NODE_R}" fill="${nc}" stroke="${ns}" stroke-width="2"/>`;
+    html+=`<svg x="${x-7}" y="${nodeY-7}" width="14" height="14" viewBox="0 0 14 14" fill="none">${iconPaths[i]}</svg>`;
+
+    const lines = ev.label;
+    const lineH = 14;
+    if(isTop){
+      // 텍스트가 위쪽 끝(lineY2)에서 위로 쌓임: 날짜 -> 라인1 -> 라인2
+      const baseY = lineY2 - 4;
+      html+=`<text x="${x}" y="${baseY - lineH*lines.length}" text-anchor="middle" font-size="10.5" fill="#C93A63" font-weight="500" font-family="Noto Sans KR">${ev.date}</text>`;
+      lines.forEach((ln,li)=>{
+        html+=`<text x="${x}" y="${baseY - lineH*(lines.length-1-li)}" text-anchor="middle" font-size="11.5" fill="#6B3348" font-family="Noto Sans KR">${ln}</text>`;
+      });
+    } else {
+      const baseY = lineY2 + 16;
+      html+=`<text x="${x}" y="${baseY}" text-anchor="middle" font-size="10.5" fill="#C93A63" font-weight="500" font-family="Noto Sans KR">${ev.date}</text>`;
+      lines.forEach((ln,li)=>{
+        html+=`<text x="${x}" y="${baseY + lineH*(li+1)}" text-anchor="middle" font-size="11.5" fill="#6B3348" font-family="Noto Sans KR">${ln}</text>`;
+      });
+    }
+  });
+
+  html+=`</svg>`;
+  con.innerHTML=html;
+}
+window.addEventListener('load',()=>{ renderTimeline(); });
+window.addEventListener('resize',renderTimeline);
+
+// ── 랜덤 대화 주제 뽑기 ──
+const topics = [
+  "신랑·신부 어렸을 때 키우면서 제일 힘들었던 시기",
+  "각자 자녀의 어릴 적 별명이나 재밌는 에피소드",
+  "신랑·신부가 어릴 때부터 가지고 있던 습관이나 버릇",
+  "자녀를 키우면서 가장 보람있었던 순간",
+  "평소 즐겨 하시는 취미나 여가 활동",
+  "좋아하시는 여행지나 가보고 싶은 곳",
+  "건강 관리 위해 하고 계신 운동이나 습관",
+  "자녀가 결혼한다는 소식을 처음 들었을 때 느낌",
+  "사돈이 좋아하시는 음식이나 술 한잔",
+  "지금 살고 계신 동네의 좋은 점",
+  "화초나 식물 가꾸기, 반려동물 같은 관심사",
+  "젊었을 때 첫 직장이나 첫 월급 이야기",
+  "평소 즐겨 보시는 TV 프로그램이나 영화",
+  "자녀의 성격 중 닮았으면 했던 점",
+  "명절이나 가족 모임 때 꼭 챙기시는 전통",
+  "사돈끼리 닮은 점이나 통하는 부분",
+  "자녀를 키우면서 느낀 본인만의 육아 철칙",
+  "두 사람이 잘 살았으면 하는 마음으로 해주고 싶은 한 말씀",
+  "이번 결혼을 통해 새로 생기는 사돈과 친해지고 싶은 점",
+  "평소 스트레스 풀 때 하시는 일"
+];
+let topicPool = [];
+let topicUsed = [];
+
+function resetTopicPool(){
+  topicPool = [...topics];
+  topicUsed = [];
+  updateTopicCounter();
+}
+function updateTopicCounter(){
+  const el = document.getElementById('topicCounter');
+  if(el) el.textContent = topicUsed.length + ' / ' + topics.length + ' 주제 사용';
+}
+function drawTopic(){
+  const textEl = document.getElementById('topicText');
+  if(!textEl) return;
+  if(topicPool.length === 0){
+    textEl.textContent = '모든 주제를 다 뽑았어요! 아래에서 다시 섞어주세요';
+    return;
+  }
+  const idx = Math.floor(Math.random() * topicPool.length);
+  const picked = topicPool.splice(idx, 1)[0];
+  topicUsed.push(picked);
+  textEl.textContent = picked;
+  updateTopicCounter();
+}
+const topicBtnEl = document.getElementById('topicBtn');
+const topicResetEl = document.getElementById('topicReset');
+if(topicBtnEl) topicBtnEl.addEventListener('click', drawTopic);
+if(topicResetEl) topicResetEl.addEventListener('click', resetTopicPool);
+resetTopicPool();
+
+// ── OX 퀴즈 ──
+const quizData = [
+  { q: '두 사람이 타는 차의 애칭은 \'베링이\'이다', a: 'O' },
+  { q: '두 사람이 처음 만난 곳은 종로5가이다', a: 'X' },
+  { q: '신부가 키우는 고양이의 이름은 \'펩시\'이다', a: 'X' },
+  { q: '결혼식은 수원 더 아리엘 웨딩홀에서 한다', a: 'O' },
+  { q: '두 사람의 웨딩촬영은 2027년 04월이다', a: 'O' },
+  { q: '먼저 번호를 물어본 사람은 신부다', a: 'X' },
+  { q: '두 사람은 계획적인 여행보다 즉흥적인 여행을 좋아한다', a: 'X' },
+  { q: '신랑은 어떤 순간에도 바다의 편이 되고자 한다', a: 'O' },
+  { q: '신부는 신랑과 모든 순간을 함께 하고 싶어한다', a: 'O' },
+  { q: '두 사람의 결혼식은 2026년 10월 2일이다', a: 'X' },
+  { q: '신부는 외향적이고, 신랑은 내향적이다', a: 'X' },
+];
+let qIdx = 0, qScore = 0, qAnswered = false;
+
+const quizQ = document.getElementById('quizQ');
+const quizResult = document.getElementById('quizResult');
+const quizNext = document.getElementById('quizNext');
+const quizCounter = document.getElementById('quizCounter');
+const quizProgress = document.getElementById('quizProgress');
+const quizBtns = document.querySelectorAll('.quiz-btn');
+
+function initProgress(){
+  quizProgress.innerHTML='';
+  for(let i=0;i<quizData.length;i++){
+    const d=document.createElement('div');
+    d.className='qp-dot';
+    quizProgress.appendChild(d);
+  }
+}
+function loadQuiz(){
+  qAnswered=false;
+  const cur=quizData[qIdx];
+  quizQ.textContent = cur.q;
+  quizResult.textContent='';
+  quizNext.style.display='none';
+  quizBtns.forEach(b=>{ b.classList.remove('correct','wrong'); b.disabled=false; });
+  quizCounter.textContent=`${qIdx+1} / ${quizData.length}`;
+}
+quizBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    if(qAnswered)return;
+    qAnswered=true;
+    const ans=btn.dataset.ans;
+    const correct=quizData[qIdx].a;
+    quizBtns.forEach(b=>{
+      b.disabled=true;
+      if(b.dataset.ans===correct) b.classList.add('correct');
+      else b.classList.add('wrong');
+    });
+    if(ans===correct){
+      quizResult.textContent='정답입니다 🎉'.replace('🎉','');
+      quizResult.textContent='정답입니다!';
+      qScore++;
+    } else {
+      quizResult.textContent=`아쉽네요! 정답은 ${correct} 입니다`;
+    }
+    const dots=quizProgress.querySelectorAll('.qp-dot');
+    if(dots[qIdx]) dots[qIdx].classList.add('done');
+    quizNext.style.display='inline-block';
+    if(qIdx===quizData.length-1) quizNext.textContent='결과 보기 →';
+  });
+});
+quizNext.addEventListener('click',()=>{
+  qIdx++;
+  if(qIdx>=quizData.length){
+    quizQ.textContent=`${quizData.length}문제 중 ${qScore}개 맞히셨습니다!`;
+    document.getElementById('quizBtns').style.display='none';
+    quizResult.textContent='즐거운 시간이었기를 바랍니다 :)';
+    quizNext.style.display='none';
+    return;
+  }
+  loadQuiz();
+});
+initProgress();
+loadQuiz();
+</script>
+</body>
+</html>
