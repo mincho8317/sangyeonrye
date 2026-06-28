@@ -33,10 +33,10 @@
   --bp-text: #C2406A;
 }
 
-html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR',sans-serif; background:#fff0f5; touch-action:pan-y; }
+html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR',sans-serif; background:#fff0f5; touch-action:auto; }
 
 /* ── Slides ── */
-.sw { display:flex; width:100%; height:100vh; transition:transform var(--trans); }
+.sw { display:flex; width:100%; height:100vh; transition:transform var(--trans); touch-action:pan-y; }
 .slide { min-width:100vw; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden; }
 
 /* ── Dots ── */
@@ -54,18 +54,18 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 /* ── Drawer ── */
 .drawer { position:fixed; top:0; left:0; width:270px; height:100vh; background:#fff; box-shadow:2px 0 24px rgba(201,58,99,.15); z-index:190; transform:translateX(-100%); transition:transform .35s cubic-bezier(0.77,0,0.18,1); display:flex; flex-direction:column; padding:76px 28px 40px; overflow-y:auto; }
 .drawer.open { transform:translateX(0); }
-.draw-title { font-size:11px; letter-spacing:.18em; color:var(--pk3); margin-bottom:20px; }
+.draw-title { font-size:13.4px; letter-spacing:.18em; color:var(--pk3); margin-bottom:20px; }
 .ni { display:flex; align-items:center; gap:12px; padding:12px 0; cursor:pointer; border-bottom:1px solid var(--pk-light); }
 .ni:last-child { border-bottom:none; }
-.ni-num { font-size:11px; color:var(--pk2); min-width:22px; }
-.ni-lbl { font-size:15px; color:var(--mid); transition:color .2s; }
+.ni-num { font-size:13.4px; color:var(--pk2); min-width:22px; }
+.ni-lbl { font-size:18.3px; color:var(--mid); transition:color .2s; }
 .ni:hover .ni-lbl, .ni.on .ni-lbl { color:var(--pk4); font-weight:500; }
 .ni.on .ni-num { color:var(--pk4); }
 .overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:180; display:none; cursor:pointer; }
 .overlay.open { display:block; }
 
 /* ── Page num ── */
-.pgnum { position:fixed; bottom:24px; right:24px; font-size:11px; color:var(--soft); z-index:100; letter-spacing:.1em; }
+.pgnum { position:fixed; bottom:24px; right:24px; font-size:13.4px; color:var(--soft); z-index:100; letter-spacing:.1em; }
 
 /* ════════ SLIDE 1: HERO (밝은 핑크) ════════ */
 .s1 { background:linear-gradient(160deg,var(--bp1) 0%,var(--bp2) 55%,var(--bp3) 100%); }
@@ -73,15 +73,15 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .s1-deco::before { content:''; position:absolute; top:-15%; right:-10%; width:55vmin; height:55vmin; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.5) 0%,transparent 70%); }
 .s1-deco::after { content:''; position:absolute; bottom:-10%; left:-10%; width:45vmin; height:45vmin; border-radius:50%; background:radial-gradient(circle,rgba(255,160,192,.35) 0%,transparent 70%); }
 .s1-inner { position:relative; z-index:2; text-align:center; padding:2rem; }
-.s1-eye { font-size:13px; letter-spacing:.2em; color:var(--pk4); margin-bottom:2rem; font-weight:500; }
+.s1-eye { font-size:15.9px; letter-spacing:.2em; color:var(--pk4); margin-bottom:2rem; font-weight:500; }
 .s1-ring { width:110px; height:110px; border-radius:50%; border:1.5px solid rgba(232,84,122,.4); display:flex; align-items:center; justify-content:center; margin:0 auto 2rem; position:relative; background:rgba(255,255,255,.4); }
 .s1-ring::before { content:''; position:absolute; inset:8px; border-radius:50%; border:1px solid rgba(232,84,122,.25); }
 .s1-ring svg { width:44px; height:44px; }
 .s1-names { font-family:'Noto Serif KR',serif; font-size:clamp(32px,6vw,54px); font-weight:700; color:var(--bp-text); line-height:1.3; margin-bottom:.75rem; }
 .s1-heart { color:var(--pk2); display:inline-block; animation:hb 2s ease-in-out infinite; }
 @keyframes hb { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
-.s1-sub { font-size:16px; color:var(--mid); letter-spacing:.06em; margin-bottom:2rem; }
-.s1-badge { display:inline-block; border:1.5px solid var(--pk3); border-radius:40px; padding:9px 26px; font-size:14px; color:var(--pk4); letter-spacing:.08em; background:rgba(255,255,255,.5); font-weight:500; }
+.s1-sub { font-size:19.5px; color:var(--mid); letter-spacing:.06em; margin-bottom:2rem; }
+.s1-badge { display:inline-block; border:1.5px solid var(--pk3); border-radius:40px; padding:9px 26px; font-size:17.1px; color:var(--pk4); letter-spacing:.08em; background:rgba(255,255,255,.5); font-weight:500; }
 
 /* ════════ SLIDE 2: 소개 ════════ */
 .s2 { background:var(--cream); }
@@ -91,30 +91,30 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .s3-deco { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
 .s3-deco .line { position:absolute; width:1px; height:100%; top:0; background:rgba(255,255,255,.06); }
 .s3-inner { position:relative; z-index:2; max-width:680px; padding:2rem; text-align:center; }
-.story-place { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:30px; padding:7px 20px; font-size:13px; color:rgba(255,255,255,.85); margin-bottom:1.75rem; }
+.story-place { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:30px; padding:7px 20px; font-size:15.9px; color:rgba(255,255,255,.85); margin-bottom:1.75rem; }
 .story-place svg { width:14px; height:14px; }
-.story-quote { font-family:'Noto Serif KR',serif; font-size:clamp(19px,3.2vw,27px); font-weight:600; color:#fff; line-height:1.7; margin-bottom:1.25rem; }
+.story-quote { font-family:'Noto Serif KR',serif; font-size:clamp(21px,3.2vw,28px); font-weight:600; color:#fff; line-height:1.7; margin-bottom:1.25rem; }
 .story-quote .em { color:var(--gold-lt); }
-.story-body { font-size:14.5px; color:rgba(255,255,255,.7); line-height:1.9; margin-bottom:1.75rem; }
+.story-body { font-size:17.7px; color:rgba(255,255,255,.7); line-height:1.9; margin-bottom:1.75rem; }
 .dday-row { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
-.dday-pill { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:30px; padding:8px 18px; font-size:12.5px; color:#fff; }
-.dday-pill .num { font-family:'Noto Serif KR',serif; font-size:15px; font-weight:600; color:var(--gold-lt); display:block; }
+.dday-pill { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:30px; padding:8px 18px; font-size:15.2px; color:#fff; }
+.dday-pill .num { font-family:'Noto Serif KR',serif; font-size:18.3px; font-weight:600; color:var(--gold-lt); display:block; }
 .s2-inner { position:relative; z-index:2; width:100%; max-width:880px; padding:1.5rem 2rem; }
-.sec-label { font-size:11px; letter-spacing:.2em; color:var(--pk3); text-align:center; margin-bottom:.75rem; font-weight:500; }
+.sec-label { font-size:13.4px; letter-spacing:.2em; color:var(--pk3); text-align:center; margin-bottom:.75rem; font-weight:500; }
 .sec-title { font-family:'Noto Serif KR',serif; font-size:clamp(24px,3.5vw,34px); font-weight:600; color:var(--dark); text-align:center; margin-bottom:1.5rem; }
 .pg { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 .pc { background:#fff; border-radius:20px; padding:1.5rem; position:relative; overflow:hidden; box-shadow:0 4px 24px rgba(201,58,99,.07); }
 .pc::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pk2),var(--gold)); }
-.pc-role { font-size:12px; letter-spacing:.15em; color:var(--pk3); margin-bottom:.35rem; font-weight:500; }
-.pc-name { font-family:'Noto Serif KR',serif; font-size:24px; font-weight:700; color:var(--dark); margin-bottom:.3rem; }
-.pc-hanja { font-size:14px; color:var(--soft); margin-bottom:.5rem; }
-.pc-mean { font-size:13px; color:var(--pk3); background:var(--pk-bg); border-radius:8px; padding:5px 10px; display:inline-block; margin-bottom:.9rem; }
+.pc-role { font-size:14.6px; letter-spacing:.15em; color:var(--pk3); margin-bottom:.35rem; font-weight:500; }
+.pc-name { font-family:'Noto Serif KR',serif; font-size:29.3px; font-weight:700; color:var(--dark); margin-bottom:.3rem; }
+.pc-hanja { font-size:17.1px; color:var(--soft); margin-bottom:.5rem; }
+.pc-mean { font-size:15.9px; color:var(--pk3); background:var(--pk-bg); border-radius:8px; padding:5px 10px; display:inline-block; margin-bottom:.9rem; }
 .pc-div { height:1px; background:var(--pk-light); margin-bottom:.9rem; }
 .pr { display:flex; align-items:flex-start; gap:9px; margin-bottom:.65rem; }
 .pr-ic { width:30px; height:30px; border-radius:50%; background:var(--pk-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .pr-ic svg { width:15px; height:15px; }
-.pr-info { font-size:14px; color:var(--mid); line-height:1.55; padding-top:3px; }
-.pr-info b { display:block; font-size:11px; color:var(--soft); font-weight:400; margin-bottom:1px; }
+.pr-info { font-size:17.1px; color:var(--mid); line-height:1.55; padding-top:3px; }
+.pr-info b { display:block; font-size:13.4px; color:var(--soft); font-weight:400; margin-bottom:1px; }
 .fam-row { display:flex; gap:6px; margin-top:3px; align-items:center; flex-wrap:wrap; }
 .fam-row svg { width:18px; height:24px; }
 
@@ -124,10 +124,10 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .s4-inner { position:relative; z-index:2; width:100%; max-width:920px; padding:1.25rem 2rem; margin:auto; }
 .wb { background:linear-gradient(135deg,var(--pk3) 0%,var(--pk5) 100%); border-radius:16px; padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
 .wb-left .wb-date { font-family:'Noto Serif KR',serif; font-size:clamp(20px,3.5vw,30px); font-weight:700; color:#fff; }
-.wb-left .wb-venue { font-size:14px; color:rgba(255,255,255,.85); margin-top:3px; }
+.wb-left .wb-venue { font-size:17.1px; color:rgba(255,255,255,.85); margin-top:3px; }
 .wb-right { text-align:right; }
-.wb-dday { font-size:22px; font-weight:500; color:#fff; font-family:'Noto Serif KR',serif; }
-.wb-dlbl { font-size:11px; color:rgba(255,255,255,.65); margin-top:2px; }
+.wb-dday { font-size:26.8px; font-weight:500; color:#fff; font-family:'Noto Serif KR',serif; }
+.wb-dlbl { font-size:13.4px; color:rgba(255,255,255,.65); margin-top:2px; }
 .tl-outer { width:100%; overflow:visible; padding:6px 0; }
 #tlContainer { width:100%; overflow:visible; }
 #tlContainer svg { overflow:visible; }
@@ -140,10 +140,10 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .hcard { background:#fff; border-radius:18px; padding:1.25rem; box-shadow:0 3px 20px rgba(201,58,99,.07); }
 .hcard-ic { width:40px; height:40px; border-radius:12px; background:var(--pk-bg); display:flex; align-items:center; justify-content:center; margin-bottom:.85rem; }
 .hcard-ic svg { width:20px; height:20px; }
-.hcard-title { font-family:'Noto Serif KR',serif; font-size:16px; font-weight:600; color:var(--dark); margin-bottom:.5rem; padding-bottom:.5rem; border-bottom:1px solid var(--pk-light); }
-.hcard-body { font-size:13px; color:var(--mid); line-height:1.75; }
-.hcard-body .tag { display:inline-block; background:var(--pk-soft); border:1px solid var(--pk-light); border-radius:20px; padding:2px 10px; font-size:11.5px; color:var(--pk4); margin-top:.4rem; margin-right:3px; }
-.hcard-helper { font-size:11.5px; color:var(--soft); margin-top:.5rem; padding-top:.4rem; border-top:1px solid var(--pk-light); display:flex; align-items:center; gap:5px; }
+.hcard-title { font-family:'Noto Serif KR',serif; font-size:19.5px; font-weight:600; color:var(--dark); margin-bottom:.5rem; padding-bottom:.5rem; border-bottom:1px solid var(--pk-light); }
+.hcard-body { font-size:15.9px; color:var(--mid); line-height:1.75; }
+.hcard-body .tag { display:inline-block; background:var(--pk-soft); border:1px solid var(--pk-light); border-radius:20px; padding:2px 10px; font-size:14px; color:var(--pk4); margin-top:.4rem; margin-right:3px; }
+.hcard-helper { font-size:14px; color:var(--soft); margin-top:.5rem; padding-top:.4rem; border-top:1px solid var(--pk-light); display:flex; align-items:center; gap:5px; }
 .hcard-helper svg { width:12px; height:12px; flex-shrink:0; }
 
 /* ════════ SLIDE 5: 닮은 점 & 케미 ════════ */
@@ -154,8 +154,8 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .chemi-card-h { display:flex; align-items:center; gap:10px; margin-bottom:.9rem; }
 .chemi-ic { width:34px; height:34px; border-radius:50%; background:var(--pk-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .chemi-ic svg { width:17px; height:17px; }
-.chemi-card-h span { font-family:'Noto Serif KR',serif; font-size:16px; font-weight:600; color:var(--dark); }
-.chemi-li { display:flex; gap:8px; font-size:13.5px; color:var(--mid); line-height:1.65; margin-bottom:.55rem; }
+.chemi-card-h span { font-family:'Noto Serif KR',serif; font-size:19.5px; font-weight:600; color:var(--dark); }
+.chemi-li { display:flex; gap:8px; font-size:16.5px; color:var(--mid); line-height:1.65; margin-bottom:.55rem; }
 .chemi-li .dot2 { width:5px; height:5px; border-radius:50%; background:var(--pk3); margin-top:7px; flex-shrink:0; }
 .chemi-wide { background:#fff; border-radius:18px; padding:1.4rem; box-shadow:0 3px 20px rgba(201,58,99,.06); }
 
@@ -163,9 +163,9 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .s8 { background:linear-gradient(160deg,#ffeaf1 0%,#ffd4e4 100%); }
 .s8-inner { position:relative; z-index:2; width:100%; max-width:760px; padding:1.5rem 2rem; }
 .letter-card { background:#fff; border-radius:20px; padding:1.6rem 1.8rem; margin-bottom:16px; position:relative; box-shadow:0 4px 24px rgba(201,58,99,.08); }
-.letter-tag { display:inline-block; background:var(--pk3); color:#fff; font-size:12px; padding:4px 14px; border-radius:20px; margin-bottom:.9rem; font-weight:500; }
-.letter-text { font-size:14.5px; color:var(--mid); line-height:1.95; font-family:'Noto Serif KR',serif; }
-.letter-sign { text-align:right; font-size:13px; color:var(--pk4); margin-top:.9rem; font-weight:500; }
+.letter-tag { display:inline-block; background:var(--pk3); color:#fff; font-size:14.6px; padding:4px 14px; border-radius:20px; margin-bottom:.9rem; font-weight:500; }
+.letter-text { font-size:17.7px; color:var(--mid); line-height:1.95; font-family:'Noto Serif KR',serif; }
+.letter-sign { text-align:right; font-size:15.9px; color:var(--pk4); margin-top:.9rem; font-weight:500; }
 
 /* ════════ SLIDE 7: 다짐 ════════ */
 .s9 { background:var(--cream); }
@@ -173,35 +173,35 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .vow-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
 .vow-card { background:#fff; border-radius:20px; padding:1.6rem; box-shadow:0 4px 24px rgba(201,58,99,.07); position:relative; overflow:hidden; }
 .vow-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--pk2),var(--gold)); }
-.vow-role { font-size:12px; color:var(--pk3); letter-spacing:.1em; margin-bottom:.4rem; font-weight:500; }
-.vow-title { font-family:'Noto Serif KR',serif; font-size:18px; font-weight:600; color:var(--dark); margin-bottom:1rem; padding-bottom:.8rem; border-bottom:1px solid var(--pk-light); }
-.vow-li { display:flex; gap:9px; font-size:13.5px; color:var(--mid); line-height:1.7; margin-bottom:.7rem; }
-.vow-num { width:20px; height:20px; border-radius:50%; background:var(--pk-soft); color:var(--pk4); font-size:11px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:600; }
+.vow-role { font-size:14.6px; color:var(--pk3); letter-spacing:.1em; margin-bottom:.4rem; font-weight:500; }
+.vow-title { font-family:'Noto Serif KR',serif; font-size:22px; font-weight:600; color:var(--dark); margin-bottom:1rem; padding-bottom:.8rem; border-bottom:1px solid var(--pk-light); }
+.vow-li { display:flex; gap:9px; font-size:16.5px; color:var(--mid); line-height:1.7; margin-bottom:.7rem; }
+.vow-num { width:24px; height:24px; border-radius:50%; background:var(--pk-soft); color:var(--pk4); font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:600; }
 
 /* ════════ SLIDE 8: OX 퀴즈 ════════ */
 .s10 { background:linear-gradient(160deg,#ffe3ed 0%,#ffc2d8 100%); }
 .s10-inner { position:relative; z-index:2; width:100%; max-width:680px; padding:1.5rem 2rem; text-align:center; }
-.quiz-counter { font-size:12px; color:var(--pk4); letter-spacing:.1em; margin-bottom:.6rem; font-weight:500; }
+.quiz-counter { font-size:14.6px; color:var(--pk4); letter-spacing:.1em; margin-bottom:.6rem; font-weight:500; }
 .quiz-box { background:#fff; border-radius:24px; padding:2.2rem 1.8rem; box-shadow:0 8px 32px rgba(201,58,99,.12); min-height:280px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-.quiz-q { font-family:'Noto Serif KR',serif; font-size:clamp(17px,2.6vw,21px); color:var(--dark); line-height:1.7; margin-bottom:1.8rem; font-weight:600; }
+.quiz-q { font-family:'Noto Serif KR',serif; font-size:clamp(19px,2.6vw,22px); color:var(--dark); line-height:1.7; margin-bottom:1.8rem; font-weight:600; }
 .quiz-btns { display:flex; gap:20px; }
-.quiz-btn { width:80px; height:80px; border-radius:50%; border:3px solid var(--pk3); background:#fff; font-family:'Noto Serif KR',serif; font-size:28px; font-weight:700; color:var(--pk4); cursor:pointer; transition:all .2s; }
+.quiz-btn { width:84px; height:84px; border-radius:50%; border:3px solid var(--pk3); background:#fff; font-family:'Noto Serif KR',serif; font-size:30px; font-weight:700; color:var(--pk4); cursor:pointer; transition:all .2s; }
 .quiz-btn:hover { background:var(--pk-soft); transform:scale(1.06); }
 .quiz-btn.correct { background:#FFB6C8; border-color:var(--pk4); color:#fff; }
 .quiz-btn.wrong { opacity:.35; }
-.quiz-result { font-size:14px; color:var(--pk4); margin-top:1.3rem; min-height:20px; font-weight:500; }
-.quiz-next { margin-top:1rem; background:var(--pk3); color:#fff; border:none; border-radius:30px; padding:9px 24px; font-size:13px; cursor:pointer; display:none; font-weight:500; }
+.quiz-result { font-size:17.1px; color:var(--pk4); margin-top:1.3rem; min-height:20px; font-weight:500; }
+.quiz-next { margin-top:1rem; background:var(--pk3); color:#fff; border:none; border-radius:30px; padding:9px 24px; font-size:15.9px; cursor:pointer; display:none; font-weight:500; }
 .quiz-progress { display:flex; gap:6px; justify-content:center; margin-top:1.4rem; }
 
 .s11 { background:linear-gradient(160deg,#fff0f6 0%,#ffd9e8 100%); }
 .s11-inner { position:relative; z-index:2; width:100%; max-width:680px; padding:1.5rem 2rem; text-align:center; }
 .topic-card { background:#fff; border-radius:24px; padding:2.4rem 1.8rem; box-shadow:0 8px 32px rgba(201,58,99,.12); min-height:200px; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; }
-.topic-text { font-family:'Noto Serif KR',serif; font-size:clamp(17px,2.6vw,21px); color:var(--dark); line-height:1.7; font-weight:600; }
-.topic-btn { background:var(--pk3); color:#fff; border:none; border-radius:30px; padding:13px 32px; font-size:15px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
+.topic-text { font-family:'Noto Serif KR',serif; font-size:clamp(19px,2.6vw,22px); color:var(--dark); line-height:1.7; font-weight:600; }
+.topic-btn { background:var(--pk3); color:#fff; border:none; border-radius:30px; padding:13px 32px; font-size:18.3px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:8px; }
 .topic-btn:hover { background:var(--pk4); }
 .topic-btn svg { width:16px; height:16px; }
-.topic-counter { font-size:12px; color:var(--pk4); letter-spacing:.08em; margin-top:1rem; font-weight:500; }
-.topic-reset { margin-top:.5rem; background:none; border:none; font-size:12px; color:var(--soft); cursor:pointer; text-decoration:underline; }
+.topic-counter { font-size:14.6px; color:var(--pk4); letter-spacing:.08em; margin-top:1rem; font-weight:500; }
+.topic-reset { margin-top:.5rem; background:none; border:none; font-size:14.6px; color:var(--soft); cursor:pointer; text-decoration:underline; }
 .qp-dot { width:8px; height:8px; border-radius:50%; background:var(--pk-light); }
 .qp-dot.done { background:var(--pk3); }
 
@@ -213,14 +213,14 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
 .s6-heart { display:block; margin:0 auto 1.5rem; animation:hb 2s ease-in-out infinite; }
 .s6-heart svg { width:52px; height:52px; }
 .s6-names { font-family:'Noto Serif KR',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:var(--bp-text); margin-bottom:1rem; }
-.s6-text { font-family:'Noto Serif KR',serif; font-size:clamp(15px,2.3vw,20px); color:var(--mid); line-height:2.1; margin-bottom:2rem; }
-.s6-date { font-size:13px; color:var(--pk4); letter-spacing:.1em; font-weight:500; }
+.s6-text { font-family:'Noto Serif KR',serif; font-size:clamp(17px,2.3vw,21px); color:var(--mid); line-height:2.1; margin-bottom:2rem; }
+.s6-date { font-size:15.9px; color:var(--pk4); letter-spacing:.1em; font-weight:500; }
 
 @media(max-width:640px){
   .pg,.grid3,.chemi-grid,.vow-grid { grid-template-columns:1fr; }
   .grid2 { grid-template-columns:1fr; }
   .quiz-btns { gap:14px; }
-  .quiz-btn { width:68px; height:68px; font-size:24px; }
+  .quiz-btn { width:72px; height:72px; font-size:26px; }
 }
 </style>
 </head>
@@ -304,7 +304,7 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
               <svg viewBox="0 0 16 22" fill="none"><circle cx="8" cy="5" r="3.5" fill="#E8547A"/><rect x="4" y="10" width="8" height="9" rx="2" fill="#E8547A"/><rect x="2" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="11" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/><rect x="8.5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/></svg>
               <svg viewBox="0 0 16 22" fill="none"><circle cx="8" cy="5" r="3.5" fill="#FF85A8"/><path d="M4 10 Q4 19 6 19 L10 19 Q12 19 12 10 Z" fill="#FF85A8"/><rect x="5" y="18" width="2.5" height="4" rx="1.2" fill="#FF85A8" opacity=".7"/><rect x="8.5" y="18" width="2.5" height="4" rx="1.2" fill="#FF85A8" opacity=".7"/></svg>
               <svg viewBox="0 0 14 20" fill="none"><circle cx="7" cy="4.5" r="3" fill="#FFB6C8"/><path d="M3.5 9.5 Q3.5 17 5.5 17 L8.5 17 Q10.5 17 10.5 9.5 Z" fill="#FFB6C8"/><rect x="4.5" y="16" width="2" height="3.5" rx="1" fill="#FFB6C8" opacity=".7"/><rect x="7.5" y="16" width="2" height="3.5" rx="1" fill="#FFB6C8" opacity=".7"/></svg>
-              <span style="font-size:12.5px;color:var(--soft)">부모님, 여동생</span>
+              <span style="font-size:15.2px;color:var(--soft)">부모님, 여동생</span>
             </div>
           </div>
         </div>
@@ -332,9 +332,9 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
           <div class="pr-info"><b>가족</b>
             <div class="fam-row">
               <svg viewBox="0 0 16 22" fill="none"><circle cx="8" cy="5" r="3.5" fill="#E8547A"/><rect x="4" y="10" width="8" height="9" rx="2" fill="#E8547A"/><rect x="2" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="11" y="10" width="3" height="7" rx="1.5" fill="#E8547A" opacity=".6"/><rect x="5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/><rect x="8.5" y="17" width="2.5" height="4" rx="1.2" fill="#E8547A" opacity=".7"/></svg>
-              <span style="font-size:12.5px;color:var(--soft)">아버지</span>
+              <span style="font-size:15.2px;color:var(--soft)">아버지</span>
               <svg viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="11" rx="6" ry="5" fill="#FFB6C8"/><ellipse cx="9" cy="7.5" rx="4.5" ry="4" fill="#FFB6C8"/><polygon points="5,5 4,1 7,4" fill="#FF85A8"/><polygon points="13,5 14,1 11,4" fill="#FF85A8"/><circle cx="7.2" cy="7.5" r=".9" fill="#C93A63"/><circle cx="10.8" cy="7.5" r=".9" fill="#C93A63"/><path d="M7.5 9.5 Q9 10.5 10.5 9.5" stroke="#C93A63" stroke-width=".9" stroke-linecap="round"/></svg>
-              <span style="font-size:12.5px;color:var(--soft)">고양이(아들) · 코카</span>
+              <span style="font-size:15.2px;color:var(--soft)">고양이(아들) · 코카</span>
             </div>
           </div>
         </div>
@@ -458,7 +458,7 @@ html,body { width:100%; height:100%; overflow:hidden; font-family:'Noto Sans KR'
         <div class="chemi-ic"><svg viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="8.5" r="6.5" stroke="#E8547A" stroke-width="1.2"/><path d="M8.5 5v3.5l2.5 1.5" stroke="#E8547A" stroke-width="1.2" stroke-linecap="round"/></svg></div>
         <span>3년의 시간이 만든 우리</span>
       </div>
-      <p style="font-size:13.5px; color:var(--mid); line-height:1.8;">
+      <p style="font-size:16.5px; color:var(--mid); line-height:1.8;">
         처음 만난 그날부터 지금까지, 서로의 다름을 맞춰가며 자연스럽게 한 팀이 되었습니다.
         의견이 다를 땐 충분히 이야기를 나누고, 함께 결정하는 습관이 자리 잡았어요.
         그 과정들이 쌓여 이제는 서로에게 가장 편안한 사람이 되었습니다.
@@ -611,27 +611,35 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);
 });
 
-let tx=0,ty=0,tStartEl=null;
+let tx=0,ty=0,tStartEl=null,tTracking=false;
 const INTERACTIVE_SEL='button,.quiz-btn,.topic-btn,.topic-reset,.ni,.ham,.dot,a,input,select,textarea';
 
 document.addEventListener('touchstart',e=>{
+  if(!e.touches || e.touches.length===0) return;
   tx=e.touches[0].clientX;
   ty=e.touches[0].clientY;
   tStartEl=e.target;
+  tTracking=true;
 },{passive:true});
 
 document.addEventListener('touchend',e=>{
+  if(!tTracking) return;
+  tTracking=false;
+
   // 버튼/메뉴 등 인터랙티브 요소를 탭한 경우는 스와이프 페이지전환 무시
   if(tStartEl && tStartEl.closest && tStartEl.closest(INTERACTIVE_SEL)) return;
+  if(!e.changedTouches || e.changedTouches.length===0) return;
 
   const dx=e.changedTouches[0].clientX-tx;
   const dy=e.changedTouches[0].clientY-ty;
 
   // 좌우 스와이프만 페이지 전환에 사용 (위아래는 슬라이드 내부 스크롤에 양보 - 아이패드 대응)
-  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>50){
+  if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){
     go(dx<0?cur+1:cur-1);
   }
 },{passive:true});
+
+document.addEventListener('touchcancel',()=>{ tTracking=false; },{passive:true});
 
 const ham=document.getElementById('ham');
 const dr=document.getElementById('dr');
@@ -688,9 +696,9 @@ function renderTimeline(){
   const W=Math.max(con.offsetWidth||800, 320);
   const SIDE_PAD = 30;          // 좌우 끝 노드가 잘리지 않도록 패딩
   const usableW = W - SIDE_PAD*2;
-  const TOP_TEXT_H = 50;        // 위쪽 텍스트 영역 높이
-  const BOT_TEXT_H = 50;        // 아래쪽 텍스트 영역 높이
-  const NODE_R = 12;
+  const TOP_TEXT_H = 58;        // 위쪽 텍스트 영역 높이
+  const BOT_TEXT_H = 58;        // 아래쪽 텍스트 영역 높이
+  const NODE_R = 13;
   const V_LINE = 22;
   const MH = TOP_TEXT_H + V_LINE + NODE_R*2 + V_LINE + BOT_TEXT_H; // 전체 svg 높이
   const barY = TOP_TEXT_H + V_LINE + NODE_R;
@@ -717,19 +725,19 @@ function renderTimeline(){
     html+=`<svg x="${x-7}" y="${nodeY-7}" width="14" height="14" viewBox="0 0 14 14" fill="none">${iconPaths[i]}</svg>`;
 
     const lines = ev.label;
-    const lineH = 14;
+    const lineH = 16;
     if(isTop){
       // 텍스트가 위쪽 끝(lineY2)에서 위로 쌓임: 날짜 -> 라인1 -> 라인2
       const baseY = lineY2 - 4;
-      html+=`<text x="${x}" y="${baseY - lineH*lines.length}" text-anchor="middle" font-size="10.5" fill="#C93A63" font-weight="500" font-family="Noto Sans KR">${ev.date}</text>`;
+      html+=`<text x="${x}" y="${baseY - lineH*lines.length}" text-anchor="middle" font-size="12.8" fill="#C93A63" font-weight="500" font-family="Noto Sans KR">${ev.date}</text>`;
       lines.forEach((ln,li)=>{
-        html+=`<text x="${x}" y="${baseY - lineH*(lines.length-1-li)}" text-anchor="middle" font-size="11.5" fill="#6B3348" font-family="Noto Sans KR">${ln}</text>`;
+        html+=`<text x="${x}" y="${baseY - lineH*(lines.length-1-li)}" text-anchor="middle" font-size="14" fill="#6B3348" font-family="Noto Sans KR">${ln}</text>`;
       });
     } else {
       const baseY = lineY2 + 16;
-      html+=`<text x="${x}" y="${baseY}" text-anchor="middle" font-size="10.5" fill="#C93A63" font-weight="500" font-family="Noto Sans KR">${ev.date}</text>`;
+      html+=`<text x="${x}" y="${baseY}" text-anchor="middle" font-size="12.8" fill="#C93A63" font-weight="500" font-family="Noto Sans KR">${ev.date}</text>`;
       lines.forEach((ln,li)=>{
-        html+=`<text x="${x}" y="${baseY + lineH*(li+1)}" text-anchor="middle" font-size="11.5" fill="#6B3348" font-family="Noto Sans KR">${ln}</text>`;
+        html+=`<text x="${x}" y="${baseY + lineH*(li+1)}" text-anchor="middle" font-size="14" fill="#6B3348" font-family="Noto Sans KR">${ln}</text>`;
       });
     }
   });
